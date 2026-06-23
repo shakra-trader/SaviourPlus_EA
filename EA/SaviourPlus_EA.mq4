@@ -1,11 +1,11 @@
 //+------------------------------------------------------------------+
 //|                                             SaviourPlus_EA.mq4   |
-//|  Hybrid Grid + Trend EA  v1.1  (with live dashboard)            |
+//|  Hybrid Grid + Trend EA  v1.2  (with live dashboard)            |
 //|  Ranging  → Grid reversals  (Price Channel + Pivot S/R)         |
 //|  Trending → Breakout + Pyramid + ATR Trailing Stop              |
 //+------------------------------------------------------------------+
-#property copyright "SaviourPlus v1.1"
-#property version   "1.10"
+#property copyright "SaviourPlus v1.2"
+#property version   "1.20"
 #property strict
 
 //────────────────────────────────────────────────────────────────────
@@ -14,7 +14,7 @@
 
 // ── Trend / Range Detection ────────────────────────────────────────
 extern int    ADX_Period          = 14;
-extern double ADX_Trend_Level     = 25.0;   // ADX above = trending
+extern double ADX_Trend_Level     = 30.0;   // ADX above = trending
 extern double ADX_Range_Level     = 20.0;   // ADX below = ranging
 extern int    EMA_Fast_Period     = 21;
 extern int    EMA_Slow_Period     = 50;
@@ -28,14 +28,14 @@ extern double Grid_LotMultiplier  = 1.3;    // lot multiplier per extra level
 extern int    Grid_MaxLevels      = 5;      // hard cap on open grid positions
 extern int    Grid_StepPips       = 25;     // pips between grid additions
 extern int    Grid_BasketTP_Pips  = 25;     // basket profit target (pips × total lots)
-extern int    Pivot_ZonePips      = 12;     // proximity to pivot S/R for entries
+extern int    Pivot_ZonePips      = 999;    // proximity to pivot S/R for entries (999=disabled)
 extern bool   Grid_OneDirection   = true;   // true = never open opposing grid simultaneously
 
 // ── Trend Settings (Trending Mode) ────────────────────────────────
 extern double Trend_InitialLot    = 0.01;
 extern int    ATR_Period          = 14;
-extern double ATR_SL_Multiplier   = 1.5;
-extern double ATR_TP_Multiplier   = 2.5;
+extern double ATR_SL_Multiplier   = 1.0;
+extern double ATR_TP_Multiplier   = 3.0;
 extern int    Pyramid_MaxLevels   = 3;
 extern int    Pyramid_StepPips    = 25;
 
